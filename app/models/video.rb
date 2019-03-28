@@ -1,6 +1,5 @@
 class Video < ApplicationRecord
   belongs_to :user
-
   after_create :set_url
 
   validates :name, format: {
