@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
   def show
-    @video = Video.find(params[:id])
+    url = "#{params[:id]}.#{params[:format]}"
+    @video = Video.find_by(url: url)
   end
 
   def edit
