@@ -1,40 +1,54 @@
 require "application_system_test_case"
 
 class VideosTest < ApplicationSystemTestCase
-  test "Visiting the New Video page" do
+  test 'Visiting the New Video page' do
     login_as users(:user)
     visit '/videos/new'
-    fill_in "video_name", with: "Biggest Movie"
-    click_on "Create"
+    fill_in 'video_name', with: 'Biggest Movie'
+    click_on 'Create'
 
     visit '/videos/new'
-    fill_in "video_name", with: "Smallest Movie"
-    click_on "Create"
+    fill_in 'video_name', with: 'Smallest Movie'
+    click_on 'Create'
 
     visit '/'
     assert_selector "a", text: 'Biggest Movie'
-    # save_and_open_screenshot
   end
 
-  test "Should only have a delete button for video owner" do
+  test 'Should only have a delete/edit button for video owner' do
     login_as users(:user)
     visit '/videos/new'
-    fill_in "video_name", with: "Biggest Movie"
-    click_on "Create"
+    fill_in 'video_name', with: 'Biggest Movie'
+    click_on 'Create'
     assert has_link?('Delete video')
+    assert has_link?('Edit video')
 
     login_as users(:user2)
-    visit 'videos/1-biggest-movie.m3u8'
+    visit '/'
+    click_on 'Biggest Movie'
     assert has_no_link?('Delete Video')
+    assert has_no_link?('Edit video')
   end
 
   test 'Video owner can delete their video' do
     login_as users(:user)
     visit '/videos/new'
-    fill_in "video_name", with: "Delete Movie"
-    click_on "Create"
+    fill_in 'video_name', with: 'Delete Movie'
+    click_on 'Create'
 
     click_on "Delete video"
     assert has_no_link?("Delete Movie")
+  end
+
+  test 'Video onwer can edit their video' do
+    login_as users(:user)
+    visit '/videos/new'
+    fill_in 'video_name', with: 'Edit Movie'
+    click_on 'Create'
+    click_on 'Edit video'
+    fill_in 'video_name', with: 'Movie edit test'
+    click_on 'Update'
+    save_and_open_screenshot
+    assert_selector 'h1', text: 'Movie edit test'
   end
 end
