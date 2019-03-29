@@ -1,9 +1,11 @@
 <h1>Videos</h1>
 
 <ul>
-  <% @videos.each do |video| %>
-    <li>
-      <%= link_to video.name, video_path(video.url) %>
-    </li>
+  <% unless @videos.nil? %>
+    <% @videos.each do |video| %>
+      <li>
+        <%= link_to video.name, video_path(video.url) %>
+      </li>
+    <% end %>
   <% end %>
 </ul>
