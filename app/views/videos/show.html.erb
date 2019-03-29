@@ -1,2 +1,8 @@
 <h1><%= @video.name %></h1>
 <p>by: <%= @video.user.email %></p>
+
+<% if current_user %>
+  <% if policy(@video).destroy? %>
+    <%= link_to "Delete video", video_path(@video.url), method: :delete %>
+  <% end %>
+<% end %>
