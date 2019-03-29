@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_action :set_video, only: %i[show edit update destroy]
+  before_action :set_video, only: %i[show destroy]
 
   def new
     @video = Video.new
@@ -17,14 +17,23 @@ class VideosController < ApplicationController
     end
   end
 
-  def show
+  def show; end
+
+  def edit
+    url = "#{params[:url]}.#{params[:format]}"
+    @video = Video.find_by(url: url)
     authorize @video
   end
 
-  def edit
-  end
-
   def update
+    @video = Video.find(params[:id])
+    authorize @video
+    if @video.update(video_params)
+      @video.update(url: "#{@video.id}-#{@video.name.parameterize}.m3u8")
+      redirect_to video_path(@video.url), notice: 'Your video was successfully updated!'
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -38,6 +47,7 @@ class VideosController < ApplicationController
   def set_video
     url = "#{params[:id]}.#{params[:format]}"
     @video = Video.find_by(url: url)
+    authorize @video
   end
 
   def video_params
