@@ -26,7 +26,15 @@ class VideosTest < ApplicationSystemTestCase
     login_as users(:user2)
     visit 'videos/1-biggest-movie.m3u8'
     assert has_no_link?('Delete Video')
+  end
 
-    save_and_open_screenshot
+  test 'Video owner can delete their video' do
+    login_as users(:user)
+    visit '/videos/new'
+    fill_in "video_name", with: "Delete Movie"
+    click_on "Create"
+
+    click_on "Delete video"
+    assert has_no_link?("Delete Movie")
   end
 end

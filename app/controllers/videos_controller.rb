@@ -1,4 +1,6 @@
 class VideosController < ApplicationController
+  before_action :set_video, only: %i[show edit update destroy]
+
   def new
     @video = Video.new
     authorize @video
@@ -16,8 +18,6 @@ class VideosController < ApplicationController
   end
 
   def show
-    url = "#{params[:id]}.#{params[:format]}"
-    @video = Video.find_by(url: url)
     authorize @video
   end
 
@@ -28,9 +28,17 @@ class VideosController < ApplicationController
   end
 
   def destroy
+    authorize @video
+    @video.destroy
+    redirect_to root_path
   end
 
   private
+
+  def set_video
+    url = "#{params[:id]}.#{params[:format]}"
+    @video = Video.find_by(url: url)
+  end
 
   def video_params
     params.require(:video).permit(:name)
