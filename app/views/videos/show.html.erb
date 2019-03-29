@@ -1,4 +1,4 @@
-<h1><%= @video.name %></h1>
+<h1 id="video-title" data-video="<%= @video.id %>"><%= @video.name %></h1>
 <p>by: <%= @video.user.email %></p>
 
 <% if current_user %>
@@ -8,8 +8,10 @@
 <% end %>
 <% end %>
 
-<video id="video" class="video-js vjs-default-skin" controls autoplay>
+<video id="video"  class="video-js vjs-default-skin" controls autoplay>
   <source
   src="https://content.jwplatform.com/manifests/yp34SRmf.m3u8"
   type="application/x-mpegURL">
 </video>
+<p>Views: <%= @video.views %></p>
+

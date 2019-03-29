@@ -42,6 +42,13 @@ class VideosController < ApplicationController
     redirect_to root_path
   end
 
+  def increase_views
+    @video = Video.find(params[:id])
+    authorize @video
+    views = @video.views + 1
+    @video.update(views: views)
+  end
+
   private
 
   def set_video

@@ -28,4 +28,8 @@ class VideoPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def increase_views?
+    true
+  end
 end
