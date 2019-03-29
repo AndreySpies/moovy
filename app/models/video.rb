@@ -4,7 +4,7 @@ class Video < ApplicationRecord
 
   validates :name, format: {
     with: /\A[\w|\-|\s|\u00C0-\u00FF]+\z/,
-    message: "only allows letters, numbers, underscores and spaces"
+    message: "only allows letters, numbers, underscores, dashes and spaces"
   }
 
   private
