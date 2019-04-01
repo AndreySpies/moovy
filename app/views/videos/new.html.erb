@@ -7,7 +7,9 @@
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
       <%= f.input :name %>
-      <%= f.submit value: 'Create' %>
+      <%= f.input :miniature %>
+      <%= f.input :miniature_cache, as: :hidden %>
+      <%= f.submit value: 'Create video' %>
       <% end %>
     </div>
   </div>
