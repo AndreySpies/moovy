@@ -32,4 +32,8 @@ class VideoPolicy < ApplicationPolicy
   def increase_views?
     true
   end
+
+  def collection?
+    true
+  end
 end
