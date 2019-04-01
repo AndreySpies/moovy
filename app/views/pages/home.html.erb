@@ -1,4 +1,10 @@
-<h1>Videos</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('home-banner.jpg')  %>);">
+  <div class="banner-content">
+    <h1>Moovy is just the best video platform in the world</h1>
+    <p>Create your own videos and get popular as you ever dreamed</p>
+    <%= link_to "Create a video", new_video_path %>
+  </div>
+</div>
 
 <ul>
   <% unless @videos.nil? %>
