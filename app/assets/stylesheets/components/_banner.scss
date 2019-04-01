@@ -1,0 +1,36 @@
+.banner {
+  height: calc(100vh - 50px);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  color: white;
+  .banner-content {
+    padding: 10%;
+  }
+  h1 {
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 32px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 20px;
+    opacity: 0.7;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+  a {
+    color: white;
+    text-decoration: none;
+    margin: 8px 0px;
+    display: inline-block;
+    padding: 11px 12px;
+    border: 1px solid white;
+    border-radius: 3px;
+    font-size: 18px
+  }
+  a:hover {
+    transition: 0.2s;
+    color: black;
+    background: white;
+  }
+}
