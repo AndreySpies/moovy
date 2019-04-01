@@ -15,7 +15,7 @@ function increaseViews() {
   Rails.ajax({
     url: "/videos/views/"+videoId+"",
     type: "PATCH",
-    data: `video[views]=1`,
+    data: "video[views]=1",
     dataType : "text"
   });
 };
