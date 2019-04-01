@@ -1,6 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <img class="img-fluid img-round" src="<%= image_path("logo.png") %>" alt="Logo">
+    <div class="navbar-logo">
+      <img class="img-fluid img-round" src="<%= image_path("logo.png") %>" alt="Logo">
+      <h3>Moovy</h3>
+    </div>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
