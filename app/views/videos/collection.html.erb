@@ -1,0 +1,8 @@
+<h1>You're seeing <%= @user.display_name %>'s videos</h1>
+<ul>
+  <% @videos.each do |video| %>
+    <li>
+      <%= link_to video.name, video_path(video.url) %>
+    </li>
+  <% end %>
+</ul>
