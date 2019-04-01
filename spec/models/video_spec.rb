@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Video, type: :model do
-  user = User.new(email: 'user@gmail.com', password: 'password')
+  user = User.new(email: 'user@gmail.com', password: 'password', first_name: 'User', last_name: 'One', display_name: 'UserOne')
   it 'Video must have a user' do
     video = Video.new(user: user)
     expect(video.user).to be_a(User)

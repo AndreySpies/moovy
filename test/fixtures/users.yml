@@ -1,4 +1,10 @@
 user:
   email: user@gmail.com
+  first_name: User
+  last_name: One
+  display_name: UserOne
 user2:
   email: user2@gmail.com
+  first_name: User
+  last_name: Two
+  display_name: UserTwo
