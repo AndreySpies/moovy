@@ -35,8 +35,8 @@ class VideosTest < ApplicationSystemTestCase
     visit '/videos/new'
     fill_in 'video_name', with: 'Delete Movie'
     click_on 'Create'
+    click_on 'Delete video'
 
-    click_on "Delete video"
     assert has_no_link?("Delete Movie")
   end
 
@@ -48,7 +48,7 @@ class VideosTest < ApplicationSystemTestCase
     click_on 'Edit video'
     fill_in 'video_name', with: 'Movie edit test'
     click_on 'Update'
-    save_and_open_screenshot
+
     assert_selector 'h1', text: 'Movie edit test'
   end
 end
