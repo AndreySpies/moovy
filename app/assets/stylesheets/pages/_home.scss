@@ -1,0 +1,38 @@
+body {
+  background: #fff;
+}
+.videos {
+  margin: 32px auto;
+  h1 {
+    font-size: 46px;
+    font-weight: 400;
+    color: $gray;
+    line-height: 50px;
+  }
+}
+
+.video-card {
+  margin: 20px auto;
+  background: white;
+  display: block;
+  border-radius: 3px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  text-decoration: none;
+  color: black;
+  img {
+    border-radius: 3px 3px 0 0;
+    height: 140px;
+    width: 100%;
+  }
+  &:hover {
+    transition: 0.3s;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 2px 0 rgba(0,0,0,0.12), 0 1px 1px -2px rgba(0,0,0,0.2);
+    text-decoration: none;
+    color: black;
+  }
+}
+.video-card-content {
+  width: 100%;
+  display: flex;
+  padding: 15px;
+}

@@ -6,12 +6,12 @@ class VideosTest < ApplicationSystemTestCase
     visit '/videos/new'
     fill_in 'video_name', with: 'Biggest Movie'
     page.attach_file("video_miniature", Rails.root + 'app/assets/images/home-banner-2.jpg')
-    click_on 'Create'
+    click_on 'Create video'
 
     visit '/videos/new'
     fill_in 'video_name', with: 'Smallest Movie'
     page.attach_file("video_miniature", Rails.root + 'app/assets/images/home-banner-2.jpg')
-    click_on 'Create'
+    click_on 'Create video'
 
     visit '/'
     assert_selector "a", text: 'Biggest Movie'
@@ -22,7 +22,7 @@ class VideosTest < ApplicationSystemTestCase
     visit '/videos/new'
     fill_in 'video_name', with: 'Biggest Movie'
     page.attach_file("video_miniature", Rails.root + 'app/assets/images/home-banner-2.jpg')
-    click_on 'Create'
+    click_on 'Create video'
     assert has_link?('Delete video')
     assert has_link?('Edit video')
 
@@ -38,7 +38,7 @@ class VideosTest < ApplicationSystemTestCase
     visit '/videos/new'
     fill_in 'video_name', with: 'Delete Movie'
     page.attach_file("video_miniature", Rails.root + 'app/assets/images/home-banner-2.jpg')
-    click_on 'Create'
+    click_on 'Create video'
     click_on 'Delete video'
 
     assert has_no_link?("Delete Movie")
@@ -49,10 +49,10 @@ class VideosTest < ApplicationSystemTestCase
     visit '/videos/new'
     fill_in 'video_name', with: 'Edit Movie'
     page.attach_file("video_miniature", Rails.root + 'app/assets/images/home-banner-2.jpg')
-    click_on 'Create'
+    click_on 'Create video'
     click_on 'Edit video'
     fill_in 'video_name', with: 'Movie edit test'
-    click_on 'Update'
+    click_on 'Update video'
 
     assert_selector 'h1', text: 'Movie edit test'
   end

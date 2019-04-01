@@ -1,6 +1,11 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: #000;
+  position: fixed;
+  width: 100vw;
+  max-width: 100vw;
+  z-index: 1000;
+  padding-right: 32px;
   .nav-link {
     color: white !important;
   }
@@ -10,6 +15,24 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-lewagon .navbar-brand {
+  display: block;
+
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  img {
+    width: 40px;
+  }
+  h3 {
+    font-size: 26px;
+    color: white;
+    display: inline-block;
+    margin: auto;
+  }
+  h3:hover {
+    color: white;
+  }
 }
