@@ -1,11 +1,11 @@
 <h1 id="video-title" data-video="<%= @video.id %>"><%= @video.name %></h1>
-<p>by: <%= @video.user.email %></p>
+<p>by: <%= link_to @video.user.display_name, collection_path(@video.user.display_name) %></p>
 
 <% if current_user %>
-<% if policy(@video).destroy? %>
-<%= link_to "Edit video", edit_video_path(@video.url) %>
-<%= link_to "Delete video", video_path(@video.url), method: :delete %>
-<% end %>
+  <% if policy(@video).destroy? %>
+    <%= link_to "Edit video", edit_video_path(@video.url) %>
+    <%= link_to "Delete video", video_path(@video.url), method: :delete %>
+  <% end %>
 <% end %>
 
 
