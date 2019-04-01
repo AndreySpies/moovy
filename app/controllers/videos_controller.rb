@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   before_action :set_video, only: %i[show destroy]
-  skip_before_action :authenticate_user!, only: :show
+  skip_before_action :authenticate_user!, only: %i[show collection increase_views]
 
   def new
     @video = Video.new
@@ -19,6 +19,12 @@ class VideosController < ApplicationController
   end
 
   def show; end
+
+  def collection
+    @user = User.find_by(display_name: params[:user])
+    @videos = Video.where(user: @user)
+    authorize @videos
+  end
 
   def edit
     url = "#{params[:url]}.#{params[:format]}"
