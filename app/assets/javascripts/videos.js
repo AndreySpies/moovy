@@ -13,7 +13,7 @@ function videoPlay() {
 function increaseViews() {
   var videoId = document.getElementById('video-title').getAttribute("data-video");
   Rails.ajax({
-    url: `/videos/views/${videoId}`,
+    url: "/videos/views/"+videoId+"",
     type: "PATCH",
     data: `video[views]=1`,
     dataType : "text"
