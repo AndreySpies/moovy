@@ -1,5 +1,6 @@
 class VideosController < ApplicationController
   before_action :set_video, only: %i[show destroy]
+  skip_before_action :authenticate_user!, only: :show
 
   def new
     @video = Video.new
