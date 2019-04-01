@@ -5,10 +5,12 @@ class VideosTest < ApplicationSystemTestCase
     login_as users(:user)
     visit '/videos/new'
     fill_in 'video_name', with: 'Biggest Movie'
+    page.attach_file("video_miniature", Rails.root + 'app/assets/images/home-banner-2.jpg')
     click_on 'Create'
 
     visit '/videos/new'
     fill_in 'video_name', with: 'Smallest Movie'
+    page.attach_file("video_miniature", Rails.root + 'app/assets/images/home-banner-2.jpg')
     click_on 'Create'
 
     visit '/'
@@ -19,6 +21,7 @@ class VideosTest < ApplicationSystemTestCase
     login_as users(:user)
     visit '/videos/new'
     fill_in 'video_name', with: 'Biggest Movie'
+    page.attach_file("video_miniature", Rails.root + 'app/assets/images/home-banner-2.jpg')
     click_on 'Create'
     assert has_link?('Delete video')
     assert has_link?('Edit video')
@@ -34,6 +37,7 @@ class VideosTest < ApplicationSystemTestCase
     login_as users(:user)
     visit '/videos/new'
     fill_in 'video_name', with: 'Delete Movie'
+    page.attach_file("video_miniature", Rails.root + 'app/assets/images/home-banner-2.jpg')
     click_on 'Create'
     click_on 'Delete video'
 
@@ -44,6 +48,7 @@ class VideosTest < ApplicationSystemTestCase
     login_as users(:user)
     visit '/videos/new'
     fill_in 'video_name', with: 'Edit Movie'
+    page.attach_file("video_miniature", Rails.root + 'app/assets/images/home-banner-2.jpg')
     click_on 'Create'
     click_on 'Edit video'
     fill_in 'video_name', with: 'Movie edit test'

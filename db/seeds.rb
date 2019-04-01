@@ -5,7 +5,9 @@ puts 'Users done!'
 
 puts 'Creating video'
 video = Video.new(user: user, name: 'big-movie')
+video.miniature = Rails.root.join("app/assets/images/home-banner-2.jpg").open
 video.save!
 video2 = Video.new(user: user2, name: 'Little Movie')
+video2.miniature = Rails.root.join("app/assets/images/home-banner-2.jpg").open
 video2.save!
 puts 'Video done!'
