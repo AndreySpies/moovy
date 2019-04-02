@@ -52,8 +52,8 @@ class VideosController < ApplicationController
   def increase_views
     @video = Video.find(params[:id])
     authorize @video
-    views = @video.views + 1
-    @video.update(views: views)
+    @views = @video.views + 1
+    respond_to { |format| format.js } if @video.update(views: @views)
   end
 
   private
