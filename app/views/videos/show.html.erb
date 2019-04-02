@@ -5,7 +5,7 @@
         <div class="video-show">
           <h1 id="video-title" data-video="<%= @video.id %>"><%= @video.name %></h1>
 
-          <video id="video" onplay="videoPlay()" class="video-js vjs-default-skin" controls>
+          <video id="video" onplay="videoPlay()" class="video-js vjs-default-skin" controls autoplay>
             <source
             src="https://content.jwplatform.com/manifests/yp34SRmf.m3u8"
             type="application/x-mpegURL">
@@ -19,7 +19,7 @@
               <% end %>
               <%= @video.user.display_name %>
             <% end %>
-            <p>Views: <%= @video.views %></p>
+            <p id="views" >Views: <%= @video.views %></p>
             <% if current_user %>
               <% if policy(@video).destroy? %>
                 <div class="video-owner">
