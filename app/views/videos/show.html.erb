@@ -1,28 +1,36 @@
 <body style="background: #131418">
   <div class="container">
-  <div class="row">
-    <div class="col-10 offset-1 col-sm-12 offset-sm-0 col-md-10 offset-md-1" style="margin-top: 66px;">
-      <div class="video-show" style="display: flex; flex-direction: column; text-align: center; align-items: center; color: white;">
-        <h1 id="video-title" data-video="<%= @video.id %>"><%= @video.name %></h1>
-        <p>by: <%= link_to @video.user.display_name, collection_path(@video.user.display_name) %></p>
+    <div class="row">
+      <div class="col-10 offset-1 col-sm-12 offset-sm-0 col-md-10 offset-md-1" style="margin-top: 66px;">
+        <div class="video-show">
+          <h1 id="video-title" data-video="<%= @video.id %>"><%= @video.name %></h1>
 
-        <% if current_user %>
-        <% if policy(@video).destroy? %>
-        <%= link_to "Edit video", edit_video_path(@video.url) %>
-        <%= link_to "Delete video", video_path(@video.url), method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-        <% end %>
-
-
-
-        <video id="video" onplay="videoPlay()" class="video-js vjs-default-skin" controls>
-          <source
-          src="https://content.jwplatform.com/manifests/yp34SRmf.m3u8"
-          type="application/x-mpegURL">
-        </video>
-        <p>Views: <%= @video.views %></p>
+          <video id="video" onplay="videoPlay()" class="video-js vjs-default-skin" controls>
+            <source
+            src="https://content.jwplatform.com/manifests/yp34SRmf.m3u8"
+            type="application/x-mpegURL">
+          </video>
+          <div class="video-info">
+            <%= link_to collection_path(@video.user.display_name) do %>
+              <% if current_user[:photo] == nil %>
+                <%= image_tag "avatar.png", class: "img-fluid avatar" %>
+              <% else %>
+                <%= cl_image_tag @video.user.photo, class: 'img-fluid avatar' %>
+              <% end %>
+              <%= @video.user.display_name %>
+            <% end %>
+            <p>Views: <%= @video.views %></p>
+            <% if current_user %>
+              <% if policy(@video).destroy? %>
+                <div class="video-owner">
+                  <%= link_to "Edit video", edit_video_path(@video.url), class: 'button button-outline-white' %>
+                  <%= link_to "Delete video", video_path(@video.url), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button button-outline-white' %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </body>
