@@ -1,6 +1,10 @@
 puts 'Creating user'
-user = User.create!(email: 'user@gmail.com', password: 'password', first_name: 'User', last_name: 'One', display_name: 'UserOne')
-user2 = User.create(email: 'user2@gmail.com', password: 'password', first_name: 'User', last_name: 'Two', display_name: 'UserTwo')
+user = User.new(email: 'user@gmail.com', password: 'password', first_name: 'User', last_name: 'One', display_name: 'UserOne')
+user.photo = Rails.root.join("app/assets/images/avatar.png").open
+user.save
+user2 = User.new(email: 'user2@gmail.com', password: 'password', first_name: 'User', last_name: 'Two', display_name: 'UserTwo')
+user2.photo = Rails.root.join("app/assets/images/avatar.png").open
+user2.save
 puts 'Users done!'
 
 puts 'Creating video'
