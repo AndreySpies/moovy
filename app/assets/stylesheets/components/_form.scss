@@ -1,0 +1,60 @@
+.form-container {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 50px);
+}
+.form {
+  text-align: center;
+  display: block;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  background: white;
+  line-height: 16px;
+  h2 {
+    color: $gray;
+  }
+  .form-group {
+    text-align: left;
+  }
+  img {
+    height: 48px;
+  }
+  input {
+    border-radius: 0;
+  }
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    transition: 0.3s;
+    color: black;
+  }
+  h3 {
+    margin-top: 16px;
+  }
+}
+.form-title {
+  margin: 16px auto;
+}
+.devise-links {
+  padding-top: 8px;
+  a {
+    display: block;
+  }
+}
+.sign-up-form {
+  input {
+    font-size: 16px;
+  }
+}
+.video-form {
+  .form-group {
+    margin: 16px auto;
+  }
+  a {
+    margin-top: 8px;
+  }
+}
