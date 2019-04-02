@@ -1,16 +1,27 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-md-6 offset-md-3">
-      <h1>Edit video</h1>
-      <%= simple_form_for(@video) do |f| %>
-      <%= f.error_notification %>
-      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<body style="background: #f2f2f2;">
+  <div class="container">
+    <div class="row">
+      <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+        <div class="form-container">
+          <div class="form">
+            <div class="form-title">
+              <h2>Edit video</h2>
+            </div>
+            <div class="video-form">
+              <%= simple_form_for(@video) do |f| %>
+              <%= f.error_notification %>
+              <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-      <%= f.input :name %>
-      <%= f.input :miniature %>
-      <%= f.input :miniature_cache, as: :hidden %>
-      <%= f.submit value: 'Update video' %>
-      <% end %>
+              <%= f.input :name %>
+              <%= f.input :miniature %>
+              <%= f.input :miniature_cache, as: :hidden %>
+              <%= f.submit value: 'Update video', class: 'button-dark' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+
+</body>
