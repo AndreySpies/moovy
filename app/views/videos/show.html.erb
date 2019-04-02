@@ -12,7 +12,7 @@
           </video>
           <div class="video-info">
             <%= link_to collection_path(@video.user.display_name) do %>
-              <% if current_user[:photo] == nil %>
+              <% if @video.user[:photo] == nil %>
                 <%= image_tag "avatar.png", class: "img-fluid avatar" %>
               <% else %>
                 <%= cl_image_tag @video.user.photo, class: 'img-fluid avatar' %>
