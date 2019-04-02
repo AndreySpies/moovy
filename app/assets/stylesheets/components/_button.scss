@@ -1,12 +1,15 @@
-.button-outline-dark {
-  color: black;
+.button {
   text-decoration: none;
-  margin: 8px 0px;
   display: inline-block;
-  padding: 11px 12px;
-  border: 1px solid black;
+  padding: 11px 24px;
   border-radius: 3px;
   font-size: 18px;
+  margin: 8px 0px;
+}
+.button-outline-dark {
+  color: black;
+  border: 1px solid black;
+  border-radius: 3px;
   &:hover {
     transition: 0.3s;
     color: white;
@@ -17,13 +20,31 @@
 .button-dark {
   color: white;
   background: black;
-  text-decoration: none;
-  margin: 8px 0px;
-  display: inline-block;
-  padding: 11px 24px;
   border: 1px solid black;
   border-radius: 3px;
-  font-size: 18px;
+  &:hover {
+    transition: 0.3s;
+    color: black;
+    background: white;
+    text-decoration: none;
+  }
+}
+
+.button-white {
+  color: black;
+  background: white;
+  border: 1px solid white;
+  &:hover {
+    transition: 0.3s;
+    color: white;
+    background: transparent;
+    text-decoration: none;
+  }
+}
+.button-outline-white {
+  color: white;
+  background: transparent;
+  border: 1px solid white;
   &:hover {
     transition: 0.3s;
     color: black;
