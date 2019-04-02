@@ -40,7 +40,7 @@ class VideosTest < ApplicationSystemTestCase
     page.attach_file("video_miniature", Rails.root + 'app/assets/images/home-banner-2.jpg')
     click_on 'Create video'
     click_on 'Delete video'
-
+    page.driver.browser.switch_to.alert.accept
     assert has_no_link?("Delete Movie")
   end
 

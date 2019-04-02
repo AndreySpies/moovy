@@ -34,3 +34,35 @@
     background: white;
   }
 }
+
+.collection-banner {
+  height: 40vh;
+  padding-top:66px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  //position: relative;
+  align-items: center;
+  color: white;
+  h1 {
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 32px;
+    font-weight: bold;
+  }
+  img {
+    height: 100px;
+    border-radius: 50%;
+  }
+}
+.collection-banner-content {
+  display: flex;
+  //position: absolute;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  //bottom: -25px;
+  padding-left: 10%;
+  h1 {
+    margin-left: 16px;
+  }
+}
