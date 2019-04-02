@@ -1,8 +1,37 @@
-<h1>You're seeing <%= @user.display_name %>'s videos</h1>
-<ul>
-  <% @videos.each do |video| %>
-    <li>
-      <%= link_to video.name, video_path(video.url) %>
-    </li>
-  <% end %>
-</ul>
+<div class="collection-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('home-banner.jpg')  %>);">
+  <div class="collection-banner-content">
+    <% if @user[:photo] == nil %>
+      <%= image_tag "avatar.png", class: "img-fluid" %>
+    <% else %>
+      <%= cl_image_tag @user.photo, class: 'img-fluid' %>
+    <% end %>
+    <h1><%= @user.display_name %></h1>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="videos">
+        <h1><%= @user.display_name %>'s videos</h1>
+      </div>
+    </div>
+  </div>
+  <div class="video-cards">
+    <div class="row">
+      <% unless @videos.nil? %>
+      <% @videos.each do |video| %>
+      <div class="col-12 col-sm-6 col-md-3">
+        <%= link_to video_path(video.url), class: 'video-card' do %>
+        <%= cl_image_tag video.miniature, class: 'img-fluid' %>
+        <div class="video-card-content">
+          <%= video.name %>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
