@@ -1,4 +1,12 @@
-puts 'Creating user'
+puts ''
+puts 'Seeding'
+
+puts 'Cleaning Database'
+User.destroy_all
+Video.destroy_all
+puts 'Database cleaned'
+
+puts 'Creating users'
 user = User.new(email: 'user@gmail.com', password: 'password', first_name: 'User', last_name: 'One', display_name: 'UserOne')
 user.photo = Rails.root.join("app/assets/images/avatar.png").open
 user.save
@@ -7,7 +15,7 @@ user2.photo = Rails.root.join("app/assets/images/avatar.png").open
 user2.save
 puts 'Users done!'
 
-puts 'Creating video'
+puts 'Creating videos'
 video = Video.new(user: user, name: 'big-movie')
 video.miniature = Rails.root.join("app/assets/images/home-banner-2.jpg").open
 video.save!
@@ -23,4 +31,6 @@ video4.save!
 video5 = Video.new(user: user, name: 'Little Movie')
 video5.miniature = Rails.root.join("app/assets/images/home-banner-2.jpg").open
 video5.save!
-puts 'Video done!'
+puts 'Videos done!'
+
+system('clear')
