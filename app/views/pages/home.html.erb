@@ -5,30 +5,27 @@
     <%= link_to "Create a video", new_video_path %>
   </div>
 </div>
-
-
 <div class="container">
   <div class="row">
     <div class="col-12">
       <div class="videos">
         <h1>Videos</h1>
-
       </div>
     </div>
   </div>
   <div class="video-cards">
     <div class="row">
       <% unless @videos.nil? %>
-      <% @videos.each do |video| %>
-      <div class="col-12 col-sm-6 col-md-3">
-        <%= link_to video_path(video.url), class: 'video-card' do %>
-          <%= cl_image_tag video.miniature, class: 'img-fluid' %>
-          <div class="video-card-content">
-            <%= video.name %>
-          </div>
+        <% @videos.each do |video| %>
+        <div class="col-12 col-sm-6 col-md-3">
+          <%= link_to video_path(video.url), class: 'video-card' do %>
+            <%= cl_image_tag video.miniature, class: 'img-fluid' %>
+            <div class="video-card-content">
+              <%= video.name %>
+            </div>
+          <% end %>
+        </div>
         <% end %>
-      </div>
-      <% end %>
       <% end %>
     </div>
   </div>
