@@ -90,6 +90,5 @@ class VideosTest < ApplicationSystemTestCase
 
     assert_selector 'h1', text: 'Another User Movie'
     assert_selector 'p', text: 'Views: 2'
-    save_and_open_screenshot
   end
 end
