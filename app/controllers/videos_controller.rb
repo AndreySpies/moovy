@@ -36,12 +36,13 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
     authorize @video
     if @video.update(video_params)
-      @video.update(url: "#{@video.id}-#{@video.name.parameterize}.m3u8")
+      @video.update_column(:url, "#{@video.id}-#{@video.name.parameterize}.m3u8")
       redirect_to video_path(@video.url), notice: 'Your video was successfully updated!'
     else
       render :edit
     end
   end
+
 
   def destroy
     authorize @video
