@@ -43,7 +43,6 @@ class VideosController < ApplicationController
     end
   end
 
-
   def destroy
     authorize @video
     @video.destroy
